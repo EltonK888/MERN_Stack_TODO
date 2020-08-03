@@ -29,7 +29,7 @@ todosRoutes.get('/', (req, res) => {
             if (err) {
                 res.status(400).send("error on GET todos")
             } else {
-                res.status(200).json(todos);
+                res.json(todos);
             }
         }
     )
@@ -80,6 +80,18 @@ todosRoutes.post('/update/:id', (req, res) => {
     })
 
 });
+
+
+// todos/delete/id
+todosRoutes.delete('/delete/:id', (req, res) => {
+    Todo.findByIdAndRemove(req.params.id, (err) => {
+        if (err) {
+            res.status(400).send("Error deleting todo");
+        } else {
+            res.status(200).send("Todo deleted successfully");
+        }
+    })
+})
 
 app.listen(PORT, () => {
     // start the server and listen on port 4000

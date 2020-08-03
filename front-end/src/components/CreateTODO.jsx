@@ -1,102 +1,53 @@
 import React, { useState } from 'react'
+import TODOForm from "./TODOForm"
 
+const URL = 'http://localhost:4000/todos/add'
 const CreateTODO = () => {
     const [state, setstate] = useState({
-        description: "",
-        responsible: "",
-        priority: "",
-        completed: false
+        todo_description: "",
+        todo_responsible: "",
+        todo_priority: "",
+        todo_completed: false
     })
 
     const handleOnSubmit = (event) => {
         event.preventDefault();
         console.log(state);
-        setstate({
-            description: "",
-            responsible: "",
-            priority: "",
-            completed: false
-        })
+        if (state.todo_completed === "" || state.todo_responsible === "" || state.todo_priority ==="") {
+            alert("Please complete all fields");
+        } else {
+            fetch(URL, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(state)
+            })
+            .then(res => res.text())
+            .then(result => {
+                alert(result);
+            })
+            .catch(err => console.log(err))
+            setstate({
+                todo_description: "",
+                todo_responsible: "",
+                todo_priority: "",
+                todo_completed: false
+            })
+        }
     }
 
     const handleOnChange = (event) => {
         setstate({
-            description: event.target.name === "description" ? event.target.value : state.description,
-            responsible: event.target.name === "responsible" ? event.target.value : state.responsible,
-            priority: event.target.name === "priority" ? event.target.value : state.priority,
-            completed: state.completed
+            todo_description: event.target.name === "description" ? event.target.value : state.todo_description,
+            todo_responsible: event.target.name === "responsible" ? event.target.value : state.todo_responsible,
+            todo_priority: event.target.name === "priority" ? event.target.value : state.todo_priority,
+            todo_completed: state.todo_completed
         });
         console.log(state);
     }
     return (
-        <div className="container form-group">
-            <h2>Create a new TODO</h2>
-            <form onSubmit={handleOnSubmit}>
-                <div className="form-group">
-                    <label htmlfor="description">Description: </label>
-                    <input 
-                        type="text"
-                        className="form-control"
-                        id="description"
-                        name="description"
-                        placeholder="What do you need to do?"
-                        value={state.description}
-                        onChange={handleOnChange}
-                    />
-                </div>
-                <div className="form-group">
-                    <label htmlfor="responsible">Responsible: </label>
-                    <input 
-                        type="text"
-                        className="form-control"
-                        id="responsible"
-                        name="responsible"
-                        placeholder="Who has to do this?"
-                        value={state.responsible}
-                        onChange={handleOnChange}
-                    />
-                </div>
-                <div className="form-group">
-                    <div className="form-check form-check-inline">
-                        <input 
-                            type="radio"
-                            htmlfor="low"
-                            value="low"
-                            className="form-check-input"
-                            id="low"
-                            name="priority"
-                            onChange={handleOnChange}
-                        />
-                        <label className="form-check-label" htmlFor="low">Low</label>
-                    </div>
-                    <div className="form-check form-check-inline">
-                        <input 
-                            type="radio"
-                            htmlfor="medium"
-                            value="medium"
-                            className="form-check-input"
-                            id="medium"
-                            name="priority"
-                            onChange={handleOnChange}
-                        />
-                        <label className="form-check-label" htmlFor="medium">Medium</label>
-                    </div>
-                    <div className="form-check form-check-inline">
-                        <input 
-                            type="radio"
-                            htmlfor="high"
-                            value="high"
-                            className="form-check-input"
-                            id="high"
-                            name="priority"
-                            onChange={handleOnChange}
-                        />
-                        <label className="form-check-label" htmlFor="high">High</label>
-                    </div>
-                </div>
-                <button type="submit" className="btn btn-primary" value="Submit">Create TODO</button>
-            </form>
-        </div>
+        <TODOForm handleOnSubmit={handleOnSubmit} handleOnChange={handleOnChange} editTODO={false} todo_description={state.todo_description} todo_responsible={state.todo_responsible} todo_priority={state.todo_priority} todo_completed={state.todo_completed}/>
     )
 }
 
