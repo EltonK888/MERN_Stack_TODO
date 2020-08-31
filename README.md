@@ -1,68 +1,43 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# MERN TODO App
 
-## Available Scripts
+This is a full-stack web application created to learn to use the MERN (MongoDB, ExpressJS, ReactJS, NodeJS) tech stack to create a full-stack web application. This project is a TODO app where you can create tasks to do, who is responsible for it, its priority, and set if the task has been completed. The tasks are stored in the MongoDB database and can be edited.
 
-In the project directory, you can run:
+The project was inspired by the following tutorial: https://codingthesmartway.com/the-mern-stack-tutorial-building-a-react-crud-application-from-start-to-finish-part-1/
 
-### `npm start`
+## What I Learned
+- How to set up the database with MongoDB
+- Use ExpressJS and NodeJS at the web framework and backend language
+- Using Mongoose to interact with the MongoDB database in an object-oriented way
+- Setting up API endpoints with GET, POST, and DELETE requests to fetch todos, create todos, and edit todos
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Screenshots
+![TODO Home Page](http://www.github.com/EltonK888/MERN_Stack_TODO/screenshots/TODO_home_page.png)
+![Create TODO](http://www.github.com/EltonK8888/MERN_Stack_TODO/screenshots/Create_TODO.png)
+![Edit TODO](http://www.github.com/EltonK888/MERN_Stack_TODO/screenshots/Edit_TODO.png)
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## To run the server locally
 
-### `npm test`
+Make sure you have `NodeJS` and `MongoDB` installed. Create a MongoDB database called `todos`.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Start MongoDB by using the following command.
+```
+$  mongod
+```
 
-### `npm run build`
+Then create the `todos` MongoDB database.
+```
+$  mongo
+$  use todos
+```
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+Run `npm install` in the back-end and front-end directories to install the required node modules
+```
+$  npm install
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Lasty, in the front-end directory, run the following command.
+```
+$  npm start
+```
+and open http://localhost:3000/ in the browser
