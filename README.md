@@ -11,9 +11,9 @@ The project was inspired by the following tutorial: https://codingthesmartway.co
 - Setting up API endpoints with GET, POST, and DELETE requests to fetch todos, create todos, and edit todos
 
 ## Screenshots
-![TODO Home Page](http://www.github.com/EltonK888/MERN_Stack_TODO/screenshots/TODO_home_page.png)
-![Create TODO](http://www.github.com/EltonK8888/MERN_Stack_TODO/screenshots/Create_TODO.png)
-![Edit TODO](http://www.github.com/EltonK888/MERN_Stack_TODO/screenshots/Edit_TODO.png)
+![TODO Home Page](https://github.com/EltonK888/MERN_Stack_TODO/blob/master/screenshots/TODO_home_page.PNG)
+![Create TODO](https://github.com/EltonK888/MERN_Stack_TODO/blob/master/screenshots/Create_TODO.PNG)
+![Edit TODO](https://github.com/EltonK888/MERN_Stack_TODO/blob/master/screenshots/Edit_TODO.PNG)
 
 ## To run the server locally
 
